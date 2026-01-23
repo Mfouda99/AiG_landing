@@ -1,0 +1,605 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+.global-talent {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(135deg, #e0e7ef 0%, #d3dce6 100%);
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.talent-hero {
+  position: relative;
+  height: 85vh;
+  background-image: url('/gta_photo.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.talent-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, #e0e7ef);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.talent-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(12, 185, 193, 0.7) 0%, rgba(12, 185, 193, 0.6) 100%);
+  backdrop-filter: blur(2px);
+}
+
+.talent-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 2rem;
+  color: white;
+}
+
+.talent-hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease;
+}
+
+.talent-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.talent-hero-btn {
+  background: white;
+  color: #0CB9C1;
+  padding: 1.2rem 3.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.talent-hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  background: #f8f9fa;
+}
+
+/* Benefits Section */
+.global-talent .benefits-section {
+  padding: 0 0 6rem 0;
+  background: transparent;
+  margin-top: 6rem;
+}
+
+.global-talent .benefits-section .section-marquee {
+  overflow: hidden;
+  background: transparent;
+  padding: 3rem 0;
+  margin-bottom: 5rem;
+  position: relative;
+  display: flex;    
+  align-items: center;
+}
+
+.global-talent .benefits-section .marquee-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 25s linear infinite;
+}
+
+.global-talent .benefits-section .marquee-track:nth-child(2) {
+  position: absolute;
+  animation: marquee2 25s linear infinite;
+}
+
+.global-talent .benefits-section .marquee-text {
+  color: #0CB9C1;
+  font-size: 4rem;
+  font-weight: 900;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.15;
+}
+
+.global-talent .benefits-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #2a2a2a;
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+  background: linear-gradient(135deg, #0CB9C1 0%, #0CB9C1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.global-talent .benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.global-talent .benefit-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 3rem 2.5rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(12, 185, 193, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.global-talent .benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 12px 40px rgba(12, 185, 193, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.global-talent .benefit-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0CB9C1 0%, #0CB9C1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 24px rgba(12, 185, 193, 0.3);
+}
+
+.global-talent .benefit-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.global-talent .benefit-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 1rem;
+}
+
+.global-talent .benefit-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Product Info Section */
+.global-talent .product-info-section {
+  padding: 4rem 0;
+  background: transparent;
+}
+
+.global-talent .info-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.global-talent .info-card {
+  flex: 0 1 300px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px rgba(12, 185, 193, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.global-talent .info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(12, 185, 193, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.global-talent .info-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0CB9C1 0%, #0CB9C1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 24px rgba(12, 185, 193, 0.3);
+}
+
+.global-talent .info-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.global-talent .info-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 0.5rem;
+}
+
+.global-talent .info-card p {
+  font-size: 1.1rem;
+  color: #0CB9C1;
+  font-weight: 600;
+}
+
+/* Countries Section */
+.global-talent .countries-section {
+  padding: 0 0 6rem 0;
+  background: transparent;
+}
+
+.global-talent .countries-section .section-marquee {
+  overflow: hidden;
+  background: transparent;
+  padding: 3rem 0;
+  margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.global-talent .countries-section .marquee-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 25s linear infinite;
+}
+
+.global-talent .countries-section .marquee-track:nth-child(2) {
+  position: absolute;
+  animation: marquee2 25s linear infinite;
+}
+
+.global-talent .countries-section .marquee-text {
+  color: #0CB9C1;
+  font-size: 4rem;
+  font-weight: 900;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.15;
+}
+
+.global-talent .countries-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.global-talent .country-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 3rem 2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(12, 185, 193, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.global-talent .country-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 12px 40px rgba(12, 185, 193, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.global-talent .country-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.global-talent .country-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.global-talent .country-card:hover .country-image img {
+  transform: scale(1.1);
+}
+
+.global-talent .country-flag {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.global-talent .country-card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 1rem;
+}
+
+.global-talent .country-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Signup Form Section */
+.global-talent .signup-section {
+  padding: 0 0 6rem 0;
+  background: transparent;
+}
+
+.global-talent .signup-section .section-marquee {
+  overflow: hidden;
+  background: transparent;
+  padding: 3rem 0;
+  margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.global-talent .signup-section .marquee-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 25s linear infinite;
+}
+
+.global-talent .signup-section .marquee-track:nth-child(2) {
+  position: absolute;
+  animation: marquee2 25s linear infinite;
+}
+
+.global-talent .signup-section .marquee-text {
+  color: #0CB9C1;
+  font-size: 4rem;
+  font-weight: 900;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.15;
+}
+
+.global-talent .signup-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.global-talent .signup-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2a2a2a;
+}
+
+.global-talent .signup-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #555;
+}
+
+.global-talent .signup-form {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 3rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px rgba(12, 185, 193, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.global-talent .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* If a row contains only one field, let that field span the full width */
+.global-talent .form-row > *:only-child {
+  grid-column: 1 / -1;
+}
+
+.global-talent .form-row-full {
+  margin-bottom: 1.5rem;
+}
+
+.global-talent .form-input {
+  padding: 1rem 1.5rem;
+  border: 2px solid rgba(12, 185, 193, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  background: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.global-talent .form-input::placeholder {
+  color: #999;
+}
+
+.global-talent .form-input:focus {
+  outline: none;
+  border-color: #0CB9C1;
+  background: white;
+  box-shadow: 0 4px 12px rgba(12, 185, 193, 0.1);
+}
+
+.global-talent .form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.global-talent .form-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #0CB9C1;
+}
+
+.global-talent .form-checkbox label {
+  font-size: 0.95rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.global-talent .signup-btn {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #0CB9C1 0%, #0CB9C1 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(12, 185, 193, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.global-talent .signup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(12, 185, 193, 0.4);
+}
+
+
+/* Animations */
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .talent-hero-title {
+    font-size: 3rem;
+  }
+  
+  .talent-hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .benefits-title {
+    font-size: 2rem;
+  }
+  
+  .benefits-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .global-talent .countries-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .global-talent .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .signup-container {
+    padding: 3rem 2rem;
+  }
+
+  .signup-title {
+    font-size: 2rem;
+  }
+}

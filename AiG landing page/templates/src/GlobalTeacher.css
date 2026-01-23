@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+.global-teacher {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(135deg, #e0e7ef 0%, #d3dce6 100%);
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.teacher-hero {
+  position: relative;
+  height: 85vh;
+  background-image: url('/gte_photo.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.teacher-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, #e0e7ef);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.teacher-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(247, 122, 0, 0.7) 0%, rgba(247, 122, 0, 0.6) 100%);
+  backdrop-filter: blur(2px);
+}
+
+.teacher-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 2rem;
+  color: white;
+}
+
+.teacher-hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease;
+}
+
+.teacher-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.teacher-hero-btn {
+  background: white;
+  color: #F77A00;
+  padding: 1.2rem 3.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.teacher-hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  background: #f8f9fa;
+}
+
+/* Benefits Section */
+.global-teacher .benefits-section {
+  padding: 0 0 6rem 0;
+  background: transparent;
+  margin-top: 6rem;
+}
+
+.global-teacher .benefits-section .section-marquee {
+  overflow: hidden;
+  background: transparent;
+  padding: 3rem 0;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.global-teacher .benefits-section .section-marquee::before,
+.global-teacher .benefits-section .section-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.global-teacher .benefits-section .section-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #e0e7ef, transparent);
+}
+
+.global-teacher .benefits-section .section-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #e0e7ef, transparent);
+}
+
+.global-teacher .benefits-section .marquee-track {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+.global-teacher .benefits-section .marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #F77A00;
+  opacity: 0.15;
+  letter-spacing: 0.1em;
+}
+
+.global-teacher .benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.global-teacher .benefit-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 3rem 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px rgba(247, 122, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.global-teacher .benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 16px 48px rgba(247, 122, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.global-teacher .benefit-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F77A00 0%, #F77A00 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  box-shadow: 0 8px 24px rgba(247, 122, 0, 0.3);
+}
+
+.global-teacher .benefit-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.global-teacher .benefit-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.global-teacher .benefit-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #5a6c7d;
+}
+
+/* Product Info Section */
+.global-teacher .product-info-section {
+  padding: 4rem 0;
+  background: transparent;
+}
+
+.global-teacher .info-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.global-teacher .info-card {
+  flex: 0 1 300px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px rgba(247, 122, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.global-teacher .info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(247, 122, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.global-teacher .info-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F77A00 0%, #F77A00 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 24px rgba(247, 122, 0, 0.3);
+}
+
+.global-teacher .info-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.global-teacher .info-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.global-teacher .info-card p {
+  font-size: 1.1rem;
+  color: #F77A00;
+  font-weight: 600;
+}
+
+/* Countries/Subjects Section */
+.global-teacher .countries-section {
+  padding: 6rem 0;
+  background: transparent;
+}
+
+.global-teacher .countries-section .section-marquee {
+  overflow: hidden;
+  background: transparent;
+  padding: 3rem 0;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.global-teacher .countries-section .section-marquee::before,
+.global-teacher .countries-section .section-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.global-teacher .countries-section .section-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #e0e7ef, transparent);
+}
+
+.global-teacher .countries-section .section-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #e0e7ef, transparent);
+}
+
+.global-teacher .countries-section .marquee-track {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+.global-teacher .countries-section .marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #F77A00;
+  opacity: 0.15;
+  letter-spacing: 0.1em;
+}
+
+.global-teacher .countries-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.global-teacher .country-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px rgba(247, 122, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.global-teacher .country-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 16px 48px rgba(247, 122, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.global-teacher .field-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F77A00 0%, #F77A00 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 24px rgba(247, 122, 0, 0.3);
+}
+
+.global-teacher .field-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.global-teacher .country-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.global-teacher .country-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #5a6c7d;
+}
+
+/* Signup Section */
+.global-teacher .signup-section {
+  padding: 6rem 0;
+  background: transparent;
+}
+
+.global-teacher .signup-section .section-marquee {
+  overflow: hidden;
+  background: transparent;
+  padding: 3rem 0;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.global-teacher .signup-section .section-marquee::before,
+.global-teacher .signup-section .section-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.global-teacher .signup-section .section-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #e0e7ef, transparent);
+}
+
+.global-teacher .signup-section .section-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #e0e7ef, transparent);
+}
+
+.global-teacher .signup-section .marquee-track {
+  display: inline-block;
+  animation: marquee 25s linear infinite;
+}
+
+.global-teacher .signup-section .marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #F77A00;
+  opacity: 0.15;
+  letter-spacing: 0.1em;
+}
+
+.global-teacher .signup-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.global-teacher .signup-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.global-teacher .signup-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #5a6c7d;
+}
+
+.global-teacher .signup-form {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 3rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px rgba(247, 122, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.global-teacher .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* If a row contains only one field, let that field span the full width */
+.global-teacher .form-row > *:only-child {
+  grid-column: 1 / -1;
+}
+
+.global-teacher .form-row-full {
+  margin-bottom: 1.5rem;
+}
+
+.global-teacher .form-input {
+  padding: 1rem 1.5rem;
+  border: 2px solid rgba(247, 122, 0, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  background: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.global-teacher .form-input:focus {
+  outline: none;
+  border-color: #F77A00;
+  background: white;
+  box-shadow: 0 4px 12px rgba(247, 122, 0, 0.1);
+}
+
+.global-teacher .form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.global-teacher .form-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #F77A00;
+}
+
+.global-teacher .form-checkbox label {
+  font-size: 0.95rem;
+  color: #5a6c7d;
+  cursor: pointer;
+}
+
+.global-teacher .signup-btn {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #F77A00 0%, #F77A00 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(247, 122, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.global-teacher .signup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(247, 122, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .teacher-hero-title {
+    font-size: 3rem;
+  }
+
+  .teacher-hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .global-teacher .benefits-container {
+    grid-template-columns: 1fr;
+  }
+
+  .global-teacher .countries-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .global-teacher .info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .global-teacher .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .global-teacher .signup-form {
+    padding: 2rem;
+  }
+
+  .global-teacher .benefits-section .marquee-text,
+  .global-teacher .countries-section .marquee-text,
+  .global-teacher .signup-section .marquee-text {
+    font-size: 2.5rem;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

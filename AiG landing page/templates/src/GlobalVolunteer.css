@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+.global-volunteer {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(135deg, #e0e7ef 0%, #d3dce6 100%);
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.volunteer-hero {
+  position: relative;
+  height: 85vh;
+  background-image: url('/gv_photo.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.global-volunteer .signup-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+  .global-volunteer .signup-title {
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2a2a2a;
+  }
+
+  .global-volunteer .signup-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #555;
+  }
+
+  .global-volunteer .signup-form {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+      0 8px 32px rgba(248, 90, 64, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .global-volunteer .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* If a row contains only one field, let that field span the full width */
+  .global-volunteer .form-row > *:only-child {
+    grid-column: 1 / -1;
+  }
+
+  .global-volunteer .form-row-full {
+    margin-bottom: 1.5rem;
+  }
+
+  .global-volunteer .form-input {
+    padding: 1rem 1.5rem;
+    border: 2px solid rgba(248, 90, 64, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .global-volunteer .form-input::placeholder {
+    color: #999;
+  }
+
+  .global-volunteer .form-input:focus {
+    outline: none;
+    border-color: #F85A40;
+    background: white;
+    box-shadow: 0 4px 12px rgba(248, 90, 64, 0.1);
+  }
+
+  .global-volunteer .form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .global-volunteer .form-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #F85A40;
+  }
+
+  .global-volunteer .form-checkbox label {
+    font-size: 0.95rem;
+    color: #666;
+    cursor: pointer;
+  }
+
+  .global-volunteer .signup-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #F85A40 0%, #F85A40 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(248, 90, 64, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .global-volunteer .signup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(248, 90, 64, 0.4);
+  }
+
+
+.global-volunteer .benefits-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.global-volunteer .benefit-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 3rem 2.5rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 32px #f8594025,
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.global-volunteer .benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 12px 40px rgba(248, 90, 64, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.global-volunteer .benefit-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F85A40 0%, #F85A40 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 24px rgba(248, 90, 64, 0.3);
+}
+
+.global-volunteer .benefit-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.global-volunteer .benefit-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 1rem;
+}
+
+.global-volunteer .benefit-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Countries Section */
+.global-volunteer .countries-section {
+  padding: 0 0 6rem 0;
+  background: transparent;
+}
+
+.global-volunteer .countries-section .section-marquee {
+  overflow: hidden;
+  background: transparent;
+  padding: 3rem 0;
+  margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.global-volunteer .countries-section .marquee-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 25s linear infinite;
+}
+
+.global-volunteer .countries-section .marquee-track:nth-child(2) {
+  position: absolute;
+  animation: marquee2 25s linear infinite;
+}
+
+.global-volunteer .countries-section .marquee-text {
+  color: #F85A40;
+  font-size: 4rem;
+  font-weight: 900;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.15;
+}
+
+.global-volunteer .countries-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.global-volunteer .country-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 3rem 2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(248, 90, 64, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.global-volunteer .country-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 12px 40px rgba(248, 90, 64, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.global-volunteer .country-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.global-volunteer .country-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.global-volunteer .country-card:hover .country-image img {
+  transform: scale(1.1);
+}
+
+.global-volunteer .country-flag {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.global-volunteer .country-card h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin-bottom: 1rem;
+}
+
+.global-volunteer .country-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Signup Form Section */
+.global-volunteer .signup-section {
+  padding: 0 0 6rem 0;
+  background: transparent;
+}
+
+.global-volunteer .signup-section .section-marquee {
+  overflow: hidden;
+  background: transparent;
+  padding: 3rem 0;
+  margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.global-volunteer .signup-section .marquee-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 25s linear infinite;
+}
+
+.global-volunteer .signup-section .marquee-track:nth-child(2) {
+  position: absolute;
+  animation: marquee2 25s linear infinite;
+}
+
+.global-volunteer .signup-section .marquee-text {
+  color: #F85A40;
+  font-size: 4rem;
+  font-weight: 900;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.15;
+}
+
+.global-volunteer .signup-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 4rem 3rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(248, 90, 64, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.global-volunteer .signup-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #2a2a2a;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #F85A40 0%, #F85A40 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.global-volunteer .signup-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+.global-volunteer .signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.global-volunteer .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* If a row contains only one field, let that field span the full width */
+.global-volunteer .form-row > *:only-child {
+  grid-column: 1 / -1;
+}
+
+.global-volunteer .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.global-volunteer .error-message {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+.global-volunteer .form-input.error {
+  border-color: #dc3545;
+  background: rgba(220, 53, 69, 0.05);
+}
+
+.global-volunteer .alert {
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.global-volunteer .alert-success {
+  background: rgba(40, 167, 69, 0.1);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  color: #155724;
+}
+
+.global-volunteer .alert-error {
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #721c24;
+}
+
+.global-volunteer .signup-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.global-volunteer .signup-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 8px 24px rgba(248, 90, 64, 0.3);
+}
+
+.global-volunteer .form-row-full {
+  display: flex;
+  width: 100%;
+}
+
+.global-volunteer .form-input {
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.global-volunteer .form-input::placeholder {
+  color: #999;
+}
+
+.global-volunteer .form-input:focus {
+  outline: none;
+  border-color: #F85A40;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 3px rgba(248, 90, 64, 0.1);
+}
+
+.global-volunteer .form-input:required:invalid {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.global-volunteer .form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.global-volunteer .form-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #F85A40;
+}
+
+.global-volunteer .form-checkbox label {
+  font-size: 0.95rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.global-volunteer .signup-btn {
+  background: linear-gradient(135deg, #F85A40 0%, #F85A40 100%);
+  color: white;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(248, 90, 64, 0.3);
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.global-volunteer .signup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(248, 90, 64, 0.4);
+}
+
+.global-volunteer .signup-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .volunteer-hero-title {
+    font-size: 3rem;
+  }
+  
+  .volunteer-hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .benefits-title {
+    font-size: 2rem;
+  }
+  
+  .benefits-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .countries-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .signup-container {
+    padding: 3rem 2rem;
+  }
+
+  .signup-title {
+    font-size: 2rem;
+  }
+}

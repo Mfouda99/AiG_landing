@@ -1,0 +1,5 @@
+Django==4.2.1
+requests==2.31.0
+# Additional optional packages you may need for deployment or extras:
+# gunicorn==20.1.0
+# python-dotenv==1.0.0

@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"AiG landing page\\\\templates\"; npm --version$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
