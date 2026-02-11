@@ -100,7 +100,6 @@ function GlobalVolunteer() {
                 <Link to="/member" className="dropdown-item">AIESEC Member</Link>
               </div>
             </li>
-            <li><Link to="/#partner">Partner With Us</Link></li>
           </ul>
         </div>
       </nav>
@@ -114,7 +113,17 @@ function GlobalVolunteer() {
             Make a difference across borders. Contribute to sustainable development 
             while experiencing a new culture and building lifelong connections.
           </p>
-          <button className="volunteer-hero-btn">Apply Now</button>
+           <button 
+                className="volunteer-hero-btn"
+                onClick={() => {
+                  document.getElementById('signup-section')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+              >
+                Apply Now
+              </button>
         </div>
       </section>
 
@@ -212,7 +221,7 @@ function GlobalVolunteer() {
         <div className="countries-container">
           <div className="country-card">
             <div className="country-image">
-              <img src="/tunisia.jpg" alt="Tunisia" />
+              <img src="/static/tunisia.jpg" alt="Tunisia" />
             </div>
             <h3>Tunisia</h3>
             <p>Discover ancient ruins, desert landscapes, and Mediterranean beaches.</p>
@@ -220,7 +229,7 @@ function GlobalVolunteer() {
 
           <div className="country-card">
             <div className="country-image">
-              <img src="/turkey.jpg" alt="Turkey" />
+              <img src="/static/turkey.webp" alt="Turkey" />
             </div>
             <h3>Turkey</h3>
             <p>Experience the crossroads of Europe and Asia with rich history.</p>
@@ -228,7 +237,7 @@ function GlobalVolunteer() {
 
           <div className="country-card">
             <div className="country-image">
-              <img src="/egypt.jpg" alt="Egypt" />
+              <img src="/static/egypt.webp" alt="Egypt" />
             </div>
             <h3>Egypt</h3>
             <p>Explore the land of pharaohs, pyramids, and ancient wonders.</p>
@@ -236,7 +245,7 @@ function GlobalVolunteer() {
 
           <div className="country-card">
             <div className="country-image">
-              <img src="/germany.jpg" alt="Germany" />
+              <img src="/static/germany.jpg" alt="Germany" />
             </div>
             <h3>Germany</h3>
             <p>Blend innovation, efficiency, and rich cultural traditions.</p>
@@ -244,7 +253,7 @@ function GlobalVolunteer() {
 
           <div className="country-card">
             <div className="country-image">
-              <img src="/italy.jpg" alt="Italy" />
+              <img src="/static/italy.jpg" alt="Italy" />
             </div>
             <h3>Italy</h3>
             <p>Experience art, cuisine, and rich cultural heritage.</p>
@@ -252,7 +261,7 @@ function GlobalVolunteer() {
 
           <div className="country-card">
             <div className="country-image">
-              <img src="/brazil.jpg" alt="Brazil" />
+              <img src="/static/brazil.webp" alt="Brazil" />
             </div>
             <h3>Brazil</h3>
             <p>Embrace vibrant culture, stunning nature, and warm hospitality.</p>
@@ -260,7 +269,7 @@ function GlobalVolunteer() {
 
           <div className="country-card">
             <div className="country-image">
-              <img src="/srilanka.jpg" alt="Sri Lanka" />
+              <img src="/static/srilanka.webp" alt="Sri Lanka" />
             </div>
             <h3>Sri Lanka</h3>
             <p>Discover tropical paradise, ancient temples, and tea plantations.</p>
@@ -268,7 +277,7 @@ function GlobalVolunteer() {
 
           <div className="country-card">
             <div className="country-image">
-              <img src="/india.jpg" alt="India" />
+              <img src="/static/india.png" alt="India" />
             </div>
             <h3>India</h3>
             <p>Experience spiritual diversity, ancient wisdom, and vibrant colors.</p>
@@ -277,7 +286,7 @@ function GlobalVolunteer() {
       </section>
 
       {/* Signup Form Section */}
-      <section className="signup-section">
+      <section id="signup-section" className="signup-section">
         <div className="section-marquee">
           <div className="marquee-track">
             <p className="marquee-text">JOIN THE MOVEMENT • JOIN THE MOVEMENT • JOIN THE MOVEMENT • JOIN THE MOVEMENT • JOIN THE MOVEMENT • JOIN THE MOVEMENT • JOIN THE MOVEMENT • JOIN THE MOVEMENT • </p>
@@ -656,6 +665,10 @@ function GlobalVolunteer() {
               AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • 
             </div>
           </div>
+        </div>
+        
+        <div className="footer-credits">
+          <p>Made with 💙, Powered by AIESEC, Developed by Mahmoud Fouda</p>
         </div>
       </footer>
     </div>

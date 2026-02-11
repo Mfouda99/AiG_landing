@@ -71,7 +71,6 @@ function GlobalTalent() {
                 <Link to="/member" className="dropdown-item">AIESEC Member</Link>
               </div>
             </li>
-            <li><Link to="/#partner">Partner With Us</Link></li>
           </ul>
         </div>
       </nav>
@@ -85,7 +84,17 @@ function GlobalTalent() {
             Launch your international career. Gain professional experience through 
             internships abroad and develop the skills that employers are looking for.
           </p>
-          <button className="talent-hero-btn">Apply Now</button>
+          <button 
+                className="talent-hero-btn"
+                onClick={() => {
+                  document.getElementById('signup-section')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+              >
+                Apply Now
+              </button>
         </div>
       </section>
 
@@ -259,7 +268,7 @@ function GlobalTalent() {
       </section>
 
       {/* Signup Form Section */}
-      <section className="signup-section">
+      <section  id="signup-section" className="signup-section">
         <div className="section-marquee">
           <div className="marquee-track">
             <p className="marquee-text">START YOUR CAREER • START YOUR CAREER • START YOUR CAREER • START YOUR CAREER • START YOUR CAREER • START YOUR CAREER • START YOUR CAREER • START YOUR CAREER • </p>
@@ -590,6 +599,10 @@ function GlobalTalent() {
               AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • 
             </div>
           </div>
+        </div>
+        
+        <div className="footer-credits">
+          <p>Made with 💙, Powered by AIESEC, Developed by Mahmoud Fouda</p>
         </div>
       </footer>
     </div>

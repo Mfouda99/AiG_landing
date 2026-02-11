@@ -4,35 +4,35 @@ import './CircularCarousel.css';
 const images = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop',
+    src: '/static/landing1.png',
     alt: 'Young professionals collaborating',
     title: 'Global Collaboration',
     description: 'Connect with diverse teams worldwide'
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop',
+    src: '/static/landing2.png',
     alt: 'Volunteers teaching children',
     title: 'Make an Impact',
     description: 'Create lasting change in communities'
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1560472355-536de3962603?w=800&h=600&fit=crop',
+    src: '/static/landing3.png',
     alt: 'Business internship',
     title: 'Career Growth',
     description: 'Develop professional skills globally'
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop',
+    src: '/static/landing4.png',
     alt: 'Cultural exchange',
     title: 'Cultural Exchange',
     description: 'Experience diverse perspectives'
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
+    src: '/static/landing5.png',
     alt: 'Leadership conference',
     title: 'Leadership Development',
     description: 'Build your leadership journey'
@@ -66,10 +66,7 @@ const CircularCarousel = () => {
         {images.map((image, index) => (
           <div
             key={image.id}
-            className={`showcase-card ${getImageClass(index)} ${hoveredIndex === index ? 'hovered' : ''}`}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            onClick={() => setActiveIndex(index)}
+            className={`showcase-card ${getImageClass(index)}`}
           >
             <div className="card-image-wrapper">
               <img 

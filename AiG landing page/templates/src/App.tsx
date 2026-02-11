@@ -1,5 +1,5 @@
 import './App.css'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import jsVectorMap from 'jsvectormap/dist/jsvectormap.esm.js'
 import 'jsvectormap/dist/jsvectormap.min.css'
@@ -16,6 +16,8 @@ import whiteBlueLogo from '/White-Blue-Logo.png'
 import blueLogo from '/Blue-Logo.png'
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const statsRef = useRef(null)
   const mapRef = useRef(null)
   const hasAnimated = useRef(false)
@@ -147,18 +149,34 @@ function App() {
           <div className="logo">
             <img src={whiteBlueLogo} alt="AIESEC" className="logo-img" />
           </div>
-          <ul className="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li className="dropdown">
-              <a href="#products">Our Products</a>
+          
+          <div className={`menu-toggle ${isMenuOpen ? 'active' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+
+          <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+            <li><a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a></li>
+            <li className={`dropdown ${isDropdownOpen ? 'active' : ''}`}>
+              <a href="#products" onClick={(e) => {
+                 if (isMenuOpen) {
+                   e.preventDefault()
+                   setIsDropdownOpen(!isDropdownOpen)
+                 }
+              }}>
+                Our Products
+                {isMenuOpen && <span style={{marginLeft: '8px', fontSize: '0.8em'}}>
+                  {isDropdownOpen ? '▲' : '▼'}
+                </span>}
+              </a>
               <div className="dropdown-menu">
-                <Link to="/global-volunteer" className="dropdown-item">Global Volunteer</Link>
-                <Link to="/global-talent" className="dropdown-item">Global Talent</Link>
-                <Link to="/global-teacher" className="dropdown-item">Global Teacher</Link>
-                <Link to="/member" className="dropdown-item">AIESEC Member</Link>
+                <Link to="/global-volunteer" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Global Volunteer</Link>
+                <Link to="/global-talent" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Global Talent</Link>
+                <Link to="/global-teacher" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Global Teacher</Link>
+                <Link to="/member" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>AIESEC Member</Link>
               </div>
             </li>
-            <li><a href="#partner">Partner With Us</a></li>
           </ul>
           
         </div>
@@ -183,33 +201,39 @@ function App() {
             <div className="intro-content glass-content">
               <h2>Here is the first step to<br />a life changing experience</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur. Eu eget bibendum a 
-                porta. Nam vitae dignissim ut adipiscing feugiat gravida duis 
-                vehicula. Id tortor arcu arcu pretium est elementum pretium. 
-                Sagittis aliquam mi elementum volutpat amet amet. Ac in 
-                semper tristique elementum vestibulum sed blandit aliquam.
+               AIESEC is the largest youth run organization, striving everyday with our global volunteers, interns, teachers and members for peace and fulfilment of human kinds potential
               </p>
-              <button className="explore-btn">Explore our Programs</button>
+              <button 
+                className="explore-btn"
+                onClick={() => {
+                  document.getElementById('products-section')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+              >
+                Explore our Programs
+              </button>
             </div>
             
             <div className="floating-images">
               <div className="float-img float-1">
-                <img src={teamPhoto} alt="Team" />
+                <img src="/static/landing6.png" alt="Team" />
               </div>
               <div className="float-img float-2">
-                <img src={teamPhoto} alt="Team" />
+                <img src="/static/landing7.png" alt="Team" />
               </div>
               <div className="float-img float-3">
-                <img src={teamPhoto} alt="Team" />
+                <img src="/static/landing8.png" alt="Team" />
               </div>
               <div className="float-img float-4">
-                <img src={teamPhoto} alt="Team" />
+                <img src="/static/landing9.png" alt="Team" />
               </div>
               <div className="float-img float-5">
-                <img src={teamPhoto} alt="Team" />
+                <img src="/static/landing10.png" alt="Team" />
               </div>
               <div className="float-img float-6">
-                <img src={teamPhoto} alt="Team" />
+                <img src="/static/team-photo.jpg" alt="Team" />
               </div>
             </div>
           </div>
@@ -254,7 +278,7 @@ function App() {
       </section>
 
       {/* Products Section */}
-      <section className="products-section">
+      <section id="products-section"  className="products-section">
         <div className="section-marquee">
           <div className="marquee-track">
             <p className="marquee-text">OUR PRODUCTS • OUR PRODUCTS • OUR PRODUCTS • OUR PRODUCTS • OUR PRODUCTS • OUR PRODUCTS • OUR PRODUCTS • OUR PRODUCTS • OUR PRODUCTS • OUR PRODUCTS • </p>
@@ -274,8 +298,8 @@ function App() {
               people aged 18 to 30 who want to contribute to the United 
               Nations Sustainable Development Goals (SDGs)
             </p>
-            <Link to="/global-volunteer">
-              <button className="product-btn volunteer-btn">Learn More</button>
+            <Link to="/global-volunteer" className="product-btn volunteer-btn">
+              Learn More
             </Link>
           </div>
 
@@ -288,8 +312,8 @@ function App() {
               aiming towards professional career development in a global 
               setting.
             </p>
-            <Link to="/global-talent">
-              <button className="product-btn talent-btn">Learn More</button>
+            <Link to="/global-talent" className="product-btn talent-btn">
+              Learn More
             </Link>
           </div>
 
@@ -302,8 +326,8 @@ function App() {
               young people who want to develop themselves and their career 
               by engaging with a professional teaching experience.
             </p>
-            <Link to="/global-teacher">
-              <button className="product-btn teacher-btn">Learn More</button>
+            <Link to="/global-teacher" className="product-btn teacher-btn">
+              Learn More
             </Link>
           </div>
 
@@ -317,8 +341,8 @@ function App() {
               personalized, relevant, and measurable leadership development 
               experience
             </p>
-            <Link to="/member">
-              <button className="product-btn member-btn">Learn More</button>
+            <Link to="/member" className="product-btn member-btn">
+              Learn More
             </Link>
           </div>
         </div>
@@ -418,9 +442,9 @@ function App() {
         </div>
         
         <div className="partners-grid">
-          {[...Array(22)].map((_, i) => (
+          {[...Array(11)].map((_, i) => (
             <div key={i} className="partner-circle">
-              <img src={`/partner-${i + 1}.png`} alt={`Partner ${i + 1}`} />
+              <img src={`/static/partner${i + 1}.png`} alt={`Partner ${i + 1}`} />
             </div>
           ))}
         </div>
@@ -489,6 +513,10 @@ function App() {
               AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • 
             </div>
           </div>
+        </div>
+        
+        <div className="footer-credits">
+          <p>Made with 💙, Powered by AIESEC, Developed by Mahmoud Fouda</p>
         </div>
       </footer>
     </div>

@@ -71,7 +71,6 @@ function GlobalTeacher() {
                 <Link to="/member" className="dropdown-item">AIESEC Member</Link>
               </div>
             </li>
-            <li><Link to="/#partner">Partner With Us</Link></li>
           </ul>
         </div>
       </nav>
@@ -85,7 +84,17 @@ function GlobalTeacher() {
             Shape minds across borders. Gain teaching experience internationally 
             while making a lasting impact on students' lives around the world.
           </p>
-          <button className="teacher-hero-btn">Apply Now</button>
+           <button 
+                className="teacher-hero-btn"
+                onClick={() => {
+                  document.getElementById('signup-section')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+              >
+                Apply Now
+              </button>
         </div>
       </section>
 
@@ -259,7 +268,7 @@ function GlobalTeacher() {
       </section>
 
       {/* Signup Form Section */}
-      <section className="signup-section">
+      <section  id="signup-section" className="signup-section">
         <div className="section-marquee">
           <div className="marquee-track">
             <p className="marquee-text">START TEACHING • START TEACHING • START TEACHING • START TEACHING • START TEACHING • START TEACHING • START TEACHING • START TEACHING • </p>
@@ -591,6 +600,10 @@ function GlobalTeacher() {
               AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • 
             </div>
           </div>
+        </div>
+        
+        <div className="footer-credits">
+          <p>Made with 💙, Powered by AIESEC, Developed by Mahmoud Fouda</p>
         </div>
       </footer>
     </div>

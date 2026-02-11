@@ -16,6 +16,7 @@ function Member() {
     department: '',
     birthdate: '',
     whyJoin: '',
+    motivation: '',
     academicSituation: '',
     employmentStatus: '',
     howHeard: '',
@@ -80,7 +81,6 @@ function Member() {
                 <Link to="/member" className="dropdown-item">AIESEC Member</Link>
               </div>
             </li>
-            <li><Link to="/#partner">Partner With Us</Link></li>
           </ul>
         </div>
       </nav>
@@ -94,7 +94,17 @@ function Member() {
             Join the world's largest youth-run organization. Develop your leadership potential 
             while making a positive impact and connecting with a global network.
           </p>
-          <button className="member-hero-btn">Apply Now</button>
+          <button 
+                className="member-hero-btn"
+                onClick={() => {
+                  document.getElementById('signup-section')?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+              >
+                Apply Now
+              </button>
         </div>
       </section>
 
@@ -179,7 +189,7 @@ function Member() {
       </section>
 
       {/* Signup Form Section */}
-      <section className="signup-section">
+      <section id="signup-section" className="signup-section">
         <div className="section-marquee">
           <div className="marquee-track">
             <p className="marquee-text">START YOUR JOURNEY • START YOUR JOURNEY • START YOUR JOURNEY • START YOUR JOURNEY • START YOUR JOURNEY • START YOUR JOURNEY • START YOUR JOURNEY • </p>
@@ -422,10 +432,10 @@ function Member() {
 
             <div className="form-row">
               <textarea 
-                name="whyJoin" 
+                name="motivation" 
                 placeholder="Tell us about your motivation to join AIESEC and what you hope to achieve..." 
                 className="form-input"
-                value={formData.whyJoin} 
+                value={formData.motivation} 
                 onChange={handleChange} 
                 rows={5}
                 required 
@@ -506,6 +516,10 @@ function Member() {
               AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • AIESEC • 
             </div>
           </div>
+        </div>
+        
+        <div className="footer-credits">
+          <p>Made with 💙, Powered by AIESEC, Developed by Mahmoud Fouda</p>
         </div>
       </footer>
     </div>

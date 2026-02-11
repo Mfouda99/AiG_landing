@@ -105,6 +105,29 @@ UNIVERSITY_DATA = {
     "University of Western Macedonia": {"podio_id": 33, "lc": "UoM THESSALONIKI"},
     "Vakalo Art & Design College": {"podio_id": 3, "lc": "ATHENS"},
     "Harokopio University of Athens": {"podio_id": 89, "lc": "ATHENS"},
+    "American College of Greece": {"podio_id": 78, "lc": "ATHENS"},
+    "Athens School of Fine Arts": {"podio_id": 2, "lc": "ATHENS"},
+    "Athens University of Economics and Business": {"podio_id": 51, "lc": "ATHENS"},
+    "Harokopio University": {"podio_id": 89, "lc": "ATHENS"},
+    "Hellenic American University": {"podio_id": 7, "lc": "ATHENS"},
+    "National and Kapodistrian University of Athens": {"podio_id": 11, "lc": "NKUA"},
+    "Alexandrion TEI of Thessaloniki": {"podio_id": 32, "lc": "UoM THESSALONIKI"},
+    "Technological Educational Institute of Athens": {"podio_id": 17, "lc": "Unipi"},
+    "Technological Educational Institute of Central Macedonia": {"podio_id": 41, "lc": "AUTH"},
+    "Technological Educational Institute of Crete": {"podio_id": 22, "lc": "Crete"},
+    "Technological Educational Institute of Epirus": {"podio_id": 83, "lc": "UoI"},
+    "Technological Educational Institute of Ionian Islands": {"podio_id": 43, "lc": "AUTH"},
+    "Technological Educational Institute of Kalamata": {"podio_id": 72, "lc": "Patras"},
+    "Technological Educational Institute of Lamia": {"podio_id": 47, "lc": "Volos"},
+    "Technological Educational Institute of Patras": {"podio_id": 25, "lc": "Patras"},
+    "Technological Educational Institute of Piraeus": {"podio_id": 17, "lc": "Unipi"},
+    "Technological Educational Institute of Serres": {"podio_id": 41, "lc": "AUTH"},
+    "Technological Educational Institute of Sterea Ellada": {"podio_id": 13, "lc": "NKUA"},
+    "Technological Educational Institute of Thessaly": {"podio_id": 45, "lc": "Volos"},
+    "Technological Educational Institute of Western Greece": {"podio_id": 25, "lc": "Patras"},
+    "Technological Educational Institute of Western Macedonia": {"podio_id": 36, "lc": "UoM THESSALONIKI"},
+    "University of Peloponnese": {"podio_id": 86, "lc": "Patras"},
+    "Other": {"podio_id": 2, "lc": "ATHENS"},
 }
 
 # Department Mappings from departments.json: Department Name -> Podio ID
@@ -198,7 +221,8 @@ def get_university_mapping(university_name):
     return {
         'lc_id': lc_info['expa_id'],  # EXPA LC ID
         'lc_podio_id': lc_info['podio_id'],  # Podio LC ID
-        'university_podio_id': university['podio_id']  # Podio University ID
+        'university_podio_id': university['podio_id'],  # Podio University ID
+        'lc_name': lc_name  # Podio LC Name (for Category fields)
     }
 
 

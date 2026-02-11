@@ -464,11 +464,16 @@ def submit_member(request):
             'university': data['university'],
             'department': data['department'],
             'whyJoin': data['whyJoin'],
+            'academicSituation': data.get('academicSituation'),
+            'employmentStatus': data.get('employmentStatus'),
+            'consent': data.get('consent'),
+            'motivation': data.get('motivation', ''),
             'howHeard': data.get('howHeard'),
             'referralLink': data.get('referralLink', ''),
             'lc_podio_id': university_mapping['lc_podio_id'],
             'university_podio_id': university_mapping['university_podio_id'],
-            'department_podio_id': department_mapping
+            'department_podio_id': department_mapping,
+            'lc_name': university_mapping.get('lc_name', 'ATHENS') # Fallback if missing
         }
         
         podio_result = submit_member_to_podio(podio_data, expa_result['person_id'])

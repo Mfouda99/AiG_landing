@@ -17,9 +17,12 @@ PODIO_PASSWORD = "AIESECHellas1956!"
 
 # Podio App IDs for different products
 PODIO_APP_IDS = {
-    'member': 25333960,  # REC app
+    'member': 30586037,  # REC Leads App
     'ysf': 25716991,
 }
+
+# App Token for Member/REC Leads App
+PODIO_MEMBER_APP_TOKEN = "e7243665a7afab17bfad76b67b0f638a"
 
 # Podio Item IDs for lookups
 PODIO_LC_APP_ID = 23156094
@@ -31,6 +34,7 @@ class PodioAuth:
     """Handles Podio authentication and token management"""
     _access_token = None
     _token_expiry = None
+    _app_tokens = {}  # Cache for app authentication tokens
     
     @classmethod
     def get_access_token(cls):
@@ -72,6 +76,45 @@ class PodioAuth:
             if hasattr(e, 'response') and e.response is not None:
                 logger.error(f"Response body: {e.response.text}")
             raise
+
+    @classmethod
+    def get_app_token(cls, app_id, app_token):
+        """Get access token for specific app"""
+        cache_key = str(app_id)
+        cached = cls._app_tokens.get(cache_key)
+        
+        if cached and cached['expiry'] > datetime.now():
+            return cached['token']
+            
+        try:
+            logger.info(f"Authenticating as App {app_id}...")
+            response = requests.post(
+                'https://podio.com/oauth/token',
+                data={
+                    'grant_type': 'app',
+                    'app_id': app_id,
+                    'app_token': app_token,
+                    'client_id': PODIO_CLIENT_ID,
+                    'client_secret': PODIO_CLIENT_SECRET
+                },
+                timeout=10
+            )
+            
+            response.raise_for_status()
+            data = response.json()
+            
+            cls._app_tokens[cache_key] = {
+                'token': data['access_token'],
+                'expiry': datetime.now() + timedelta(seconds=data['expires_in'] - 300)
+            }
+            
+            return data['access_token']
+        except Exception as e:
+            logger.error(f"Failed to authenticate as App {app_id}: {str(e)}")
+            if hasattr(e, 'response') and e.response is not None:
+                logger.error(f"Response body: {e.response.text}")
+            raise
+
 
 
 def get_podio_item_id(app_id, item_id):
@@ -124,16 +167,6 @@ def submit_member_to_podio(data, expa_person_id):
     """
     try:
         logger.info(f"Starting Podio submission for {data['email']} (EXPA ID: {expa_person_id})")
-        logger.info(f"Looking up Podio mappings - LC: {data['lc_podio_id']}, University: {data['university_podio_id']}, Department: {data['department_podio_id']}")
-        
-        # Get LC, University, and Department Podio item IDs
-        lc_item_id = get_podio_item_id(PODIO_LC_APP_ID, data['lc_podio_id'])
-        university_item_id = get_podio_item_id(PODIO_UNIVERSITY_APP_ID, data['university_podio_id'])
-        department_item_id = get_podio_item_id(PODIO_DEPARTMENT_APP_ID, data['department_podio_id'])
-        
-        if not all([lc_item_id, university_item_id, department_item_id]):
-            logger.error(f"Podio mapping lookup failed - LC: {lc_item_id}, Uni: {university_item_id}, Dept: {department_item_id}")
-            return {'success': False, 'item_id': None, 'error': 'Failed to lookup Podio mappings'}
         
         # Build EXPA link
         expa_link = f"https://expa.aiesec.org/people/{expa_person_id}"
@@ -143,14 +176,57 @@ def submit_member_to_podio(data, expa_person_id):
             birthdate = datetime.strptime(data['birthdate'], '%Y-%m-%d')
         except:
             birthdate = None
+            
+        # LC Mapping (Option IDs for 'home-lc-4')
+        lc_map = {
+            'UniPi': 1, 'Unipi': 1, 'UoM THESSALONIKI': 2, 'Volos': 3, 
+            'Patras': 4, 'Crete': 5, 'ATHENS': 6, 'Aegean': 7, 
+            'AEGEAN': 7, 'AUTH': 8, 'DUTH': 9, 'NKUA': 10, 'UoI': 11
+        }
+        lc_val = lc_map.get(data.get('lc_name'), 6) # Default to ATHENS if not found
         
+        # Source Mapping (Option IDs for 'how-did-you-hear-about-aiesec')
+        hh = data.get('howHeard', '')
+        source_id = 15 # Default: Friends
+        if hh == 'social-media': source_id = 1 # Instagram Story
+        elif hh == 'university-event': source_id = 12 # Events
+        elif hh == 'website': source_id = 14 # Website
+        elif hh == 'other': source_id = 18 # Other Org
+        
+        # Academic Situation Mapping (Default to 1st year if unknown)
+        # Options: 1:1st year, 2:2nd, 3:3rd, 4:4th, 5:5th, 6:Graduated
+        academic_map = {
+            'Undergraduate Student': 1, 
+            'Postgraduate Student': 5, 
+            'Graduate': 6, 
+            'Alumni': 6 
+        }
+        academic_val = academic_map.get(data.get('academicSituation'), 1)
+
+        # Employment Status Mapping (Default to Unemployed if unknown)
+        # Options: 1:Employed, 2:Self employed, 3:Unemployed
+        employment_map = {
+            'student': 3, 
+            'part-time': 1, 
+            'full-time': 1, 
+            'unemployed': 3,
+            'other': 3
+        }
+        employment_val = employment_map.get(data.get('employmentStatus'), 3)
+
         # Build Podio item fields
+        # Note: We append University name to motivation since we can't link to the new University App easily
+        univ_text = f"\n\nUniversity: {data.get('university', 'Unknown')}"
+        
         fields = {
             "full-name": {
-                "value": f"{data['firstName']} {data['lastName']}"
+                "value": data['firstName']
+            },
+            "last-name-2": {
+                "value": data['lastName']
             },
             "why-would-you-like-to-join-aiesec": {
-                "value": data.get('whyJoin', '')
+                "value": (f"{data.get('whyJoin', '')}\n\nMotivation:\n{data.get('motivation', '')}" if data.get('motivation') else data.get('whyJoin', '')) + univ_text
             },
             "email-2": {
                 "value": [{"type": "home", "value": data['email']}]
@@ -158,20 +234,26 @@ def submit_member_to_podio(data, expa_person_id):
             "phone": {
                 "value": [{"type": "home", "value": data['phone']}]
             },
-            "university-2": {
-                "value": university_item_id
-            },
-            "home-lc": {
-                "value": lc_item_id
-            },
-            "department-2": {
-                "value": department_item_id
-            },
             "ep-id-expa-link": {
                 "value": expa_link
             },
-            "how-did-you-hear-about-aiesec-2": {
-                "value": data.get('howHeard')
+            "home-lc-4": {
+                "value": lc_val
+            },
+            "department": {
+                "value": data.get('department', '')
+            },
+            "how-did-you-hear-about-aiesec": {
+                "value": source_id
+            },
+            "what-option-best-fits-your-current-academic-situation": {
+                "value": academic_val
+            },
+            "what-option-best-fits-your-current-employment-status": {
+                "value": employment_val
+            },
+            "data-protection-privacy-policy": {
+                "value": 1
             }
         }
         
@@ -180,13 +262,12 @@ def submit_member_to_podio(data, expa_person_id):
                 "start_date": birthdate.strftime('%Y-%m-%d')
             }
         
-        if data.get('referralLink'):
-            fields["referral-link"] = {"value": data['referralLink']}
-        
         # Create Podio item
         logger.info("Creating Podio item...")
-        token = PodioAuth.get_access_token()
-        app_id = PODIO_APP_IDS.get('member', 25333960)
+        
+        # Use App Authentication for robust submission
+        app_id = PODIO_APP_IDS.get('member')
+        token = PodioAuth.get_app_token(app_id, PODIO_MEMBER_APP_TOKEN)
         
         logger.info(f"Posting to Podio app {app_id}")
         response = requests.post(

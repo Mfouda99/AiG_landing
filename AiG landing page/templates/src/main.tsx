@@ -6,12 +6,14 @@ import GlobalVolunteer from './GlobalVolunteer.tsx'
 import GlobalTalent from './GlobalTalent.tsx'
 import GlobalTeacher from './GlobalTeacher.tsx'
 import Member from './Member.tsx'
+import ScrollToTop from './components/ScrollToTop.tsx'
 
 const rootElement = document.getElementById('root')
 if (!rootElement) throw new Error('Failed to find the root element')
 
 createRoot(rootElement).render(
   <BrowserRouter>
+      <ScrollToTop />
       <Routes>
       <Route path="/" element={<App />} />
       <Route path="/global-volunteer" element={<GlobalVolunteer />} />

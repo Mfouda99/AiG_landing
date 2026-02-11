@@ -30,18 +30,7 @@
 }
 
 .world-map-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
-  background-size: 60px 60px;
-  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
-  opacity: 0.3;
-  animation: glass-shimmer 20s linear infinite;
+  display: none;
 }
 
 @keyframes glass-shimmer {
@@ -416,14 +405,18 @@
     font-size: 16px;
   }
 
+  /* .visual-column was hidden, enabling it for mobile */
   .visual-column {
-    display: none;
+    display: flex;
+    min-height: 350px;
+    margin-top: 2rem;
   }
 
   .world-map-bg {
-    opacity: 0.02;
+    opacity: 0.1;
   }
 }
+
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
